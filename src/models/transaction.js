@@ -1,4 +1,4 @@
-class Transaction {
+export default class Transaction {
     constructor(from, to, amount) {
         if (!from || !to || isNaN(amount))
             throw new Error('Invalid data');
@@ -9,5 +9,3 @@ class Transaction {
         this.timestamp = Math.floor(+new Date() / 1000);
     }
 }
-
-module.exports = Transaction;

@@ -1,17 +1,18 @@
-const sha256 = require('js-sha256');
-const Block = require('./block');
-const nodePersist = require('node-persist');
-const crypto = require('crypto');
-const Nodes = require('./nodes');
+import sha256 from 'js-sha256'
+import Block from './block.js'
+import nodePersist from 'node-persist';
+import {createHash} from 'crypto';
+import Nodes from './nodes.js'
+import path from 'path'
 
-class Blockchain {
+export default class Blockchain {
     constructor(url, port) {
         this.blocks = [];
         this.nodes = new Nodes(url, port);
 
         (async () => {
             this.storage = nodePersist.create({
-                dir: __dirname + '/../../storage/' + crypto.createHash('md5').update(url+port).digest("hex")
+                dir: path.basename('/../../storage/' + createHash('md5').update(url+port).digest("hex"))
             });
             await this.storage.init();
 
@@ -105,5 +106,3 @@ class Blockchain {
         return this.blocks.length-1;
     }
 }
-
-module.exports = Blockchain;

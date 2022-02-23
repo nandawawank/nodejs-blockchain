@@ -8,11 +8,12 @@
     },
     "author": "Bernardino Todolí López",
     "license": "MIT",
+    "type": "module",
     "dependencies": {
         "body-parser": "^1.18.3",
         "express": "^4.16.3",
         "js-sha256": "^0.9.0",
-        "node-fetch": "^3.1.1",
+        "node-fetch": "^3.2.0",
         "node-persist": "^3.0.5"
     }
 }

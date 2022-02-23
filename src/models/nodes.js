@@ -1,9 +1,9 @@
-const fetch = require('node-fetch');
-const Blockchain = require('./blockchain');
-
-class Nodes {
+import Blockchain from './blockchain.js';
+import fetch from 'node-fetch';
+import fs from 'fs';
+export default class Nodes {
     constructor(url, port) {
-        const nodes = require(process.env.NODE_ENV=='production' ? '../../config/nodes.prod.json' : '../../config/nodes.json');
+        const nodes = fs.readFileSync('config/nodes.json', 'utf8');
         const currentURL = url + ':' + port;
         this.list = [];
 
@@ -65,5 +65,3 @@ class Nodes {
         });
     }
 }
-
-module.exports = Nodes;

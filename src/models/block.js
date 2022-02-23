@@ -1,4 +1,4 @@
-class Block {
+export default class Block {
     constructor() {
         this.index = 0;
         this.previousHash = '';
@@ -20,5 +20,3 @@ class Block {
     }
 
 }
-
-module.exports = Block;

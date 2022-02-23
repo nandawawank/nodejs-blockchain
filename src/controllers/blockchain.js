@@ -1,8 +1,8 @@
-const Transactions = require('../models/transactions');
-const Blockchain = require('../models/blockchain');
-const Nodes = require('../models/nodes');
+import Transactions from '../models/transactions.js'
+import Blockchain from '../models/blockchain.js'
+import Nodes from '../models/nodes.js';
 
-class BlockchainController {
+export default class BlockchainController {
     constructor(url, port) {
         this.blockchain = new Blockchain(url, port);
         this.nodes = new Nodes(url, port);
@@ -41,5 +41,3 @@ class BlockchainController {
         res.json(this.blockchain.getBlockLastIndex());
     }
 }
-
-module.exports = BlockchainController;

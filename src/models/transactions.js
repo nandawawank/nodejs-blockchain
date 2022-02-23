@@ -1,6 +1,6 @@
-const Transaction = require('./transaction');
+import Transaction from './transaction.js';
 
-class Transactions {
+export default class Transactions {
     constructor() {
         this.list = [];
     }
@@ -29,5 +29,3 @@ class Transactions {
         this.list = [];
     }
 }
-
-module.exports = Transactions;

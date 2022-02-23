@@ -1,7 +1,7 @@
 
-const blockchainController = require('./src/controllers/blockchain');
-const express = require('express');
-const bodyParser = require('body-parser');
+import blockchainController from './src/controllers/blockchain.js';
+import express from 'express';
+import bodyParser from 'body-parser';
 
 // Load env vars
 const url = process.env.URL || '0.0.0.0';
